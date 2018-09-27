@@ -1,6 +1,8 @@
 class command:
+    """Still hardcoded too. I'm working on this."""
+
     def exec(self):
-        print("exit     - exits the console.")
-        print("time     - gives the current time.")
-        print("ls       - list all files in the current directory.")
-        print("cd       - changes directory.")
+        command_list = [["exit", "exits the console"], ["time", "gives the current time"], ["ls", "lists all files in the current directory"], ["cd", "changes the current directory"], ["about", "shows some info about bash.py"], ["help", "shows this list"]]
+
+        for elem in command_list:
+            print(elem[0] + "\t" + elem[1])
