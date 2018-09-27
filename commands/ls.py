@@ -1,12 +1,16 @@
 import os
 import time
-import sys
+from utility import cbc
 
 
 class command:
     def exec(args):
-        for file in os.listdir(os.environ['directory']):
-            sys.stdout.flush()
-            print(file)
+        print()
+        print("Objects in " + os.environ['directory'])
+        for file in os.scandir(os.environ['directory']):
+            if file:
+                print("FILE\t" + file.name)
+            else:
+                print("DIR\t" + file.name)
             if "slow" in args:
                 time.sleep(.1)
