@@ -6,7 +6,7 @@ It's my first project with python, so I appreciate any help, ideas or improvemen
 
 
 ### Setup
-Download and extract the repository. In you console, run
+Download and extract the repository. In your console, run
 `python main.py`.
 You should now see a bash-like command line.
 For more information, you can just type `help` or `about`.
