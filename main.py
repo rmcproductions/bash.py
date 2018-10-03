@@ -1,8 +1,11 @@
 import os
 import platform
+import shlex
 
-"""Yes, this is hard-coded. I am still learning."""
+
+
 class commands:
+    """Yes, this is hard-coded. I am still learning."""
     from commands import help
     from commands import exit
     from commands import cd
@@ -26,20 +29,21 @@ def __init__():
  
  For a list of all commands, type 'help'
 """)
-    username = "admin"
     userin = ""
     while userin != "exit":
-        userin = input( platform.uname()[0] + "@" + platform.uname()[1] + os.environ['directory'] + "$ ")
+        userin = input(platform.uname()[0] + "@" + platform.uname()[1] + os.environ['directory'] + "$ ")
 
-        userin  = userin.split(" ")
-        invoke  = userin[0]
-        args    = userin[1:]
+        userin = shlex.split(userin)
+        if len(userin) > 0:
+            invoke, *args = userin
 
-        global commands
-        if hasattr(commands, invoke):
-            getattr(commands, invoke).command.exec(args)
-        else:
-            print(invoke + ": Command not found")
+            try:
+                command = getattr(commands, invoke)
+            except AttributeError:
+                print(invoke + ": Command not found")
+                continue
+            command.command.exec(args)
 
 
-__init__()
+if __name__ == '__main__':
+    __init__()
