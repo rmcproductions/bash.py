@@ -1,7 +1,7 @@
 from utility import cbc
 
 
-class command:
+class Command:
     def exec(self):
         lines = ["bash.py", "", "Developed by Rene (@rmcproductions)", "GNU General Public License v3.0"]
-        cbc.printLines(lines)
+        cbc.print_lines(lines)

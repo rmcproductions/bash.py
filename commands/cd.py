@@ -1,8 +1,11 @@
 import os
 
 
-class command:
+class Command:
     def exec(args):
+        if len(args) == 0:
+            return
+
         if args[0] == "..":
             os.environ['directory'] = "/".join(os.environ['directory'].split("/")[:-2])
             if os.environ['directory'] == "":

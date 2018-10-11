@@ -3,9 +3,9 @@ import platform
 import shlex
 
 
-
-class commands:
+class Commands:
     """Yes, this is hard-coded. I am still learning."""
+    from commands import rm
     from commands import help
     from commands import exit
     from commands import cd
@@ -38,11 +38,11 @@ def __init__():
             invoke, *args = userin
 
             try:
-                command = getattr(commands, invoke)
+                command = getattr(Commands, invoke)
             except AttributeError:
                 print(invoke + ": Command not found")
                 continue
-            command.command.exec(args)
+            command.Command.exec(args)
 
 
 if __name__ == '__main__':
