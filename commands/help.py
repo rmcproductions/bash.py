@@ -1,4 +1,4 @@
-class command:
+class Command:
     """Still hardcoded too. I'm working on this."""
 
     def exec(self):

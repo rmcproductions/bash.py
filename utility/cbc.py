@@ -2,7 +2,7 @@ import sys
 import time
 
 
-def printLines(lines):
+def print_lines(lines):
     for line in lines:
         for i in range(len(line) + 1):
             sys.stdout.write('\r' + line[:i])
