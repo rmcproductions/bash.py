@@ -1,7 +1,7 @@
-from utility import cbc
+import utility
 
 
 class Command:
     def exec(self):
         lines = ["bash.py", "", "Developed by Rene (@rmcproductions)", "GNU General Public License v3.0"]
-        cbc.print_lines(lines)
+        utility.print_lines_delay(lines)
