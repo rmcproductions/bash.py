@@ -6,7 +6,7 @@ import shlex
 class Commands:
     import commands
 
-    os.environ['directory'] = "/"
+    os.environ['directory'] = os.curdir
 
     def __init__(self):
         print("""

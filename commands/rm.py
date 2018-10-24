@@ -11,3 +11,6 @@ class Command:
             os.remove(path)
         else:
             print(f"rm: Cannot remove {path}: It´s a directory")
+
+    name = "rm"
+    description = "Deletes a file from the current directory."

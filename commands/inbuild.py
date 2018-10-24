@@ -9,5 +9,8 @@ class Command:
         userin = input(platform.uname()[0] + "@" + platform.uname()[1] + os.environ['directory'] + "$ ")
         while userin != 'exit':
             output = os.popen(userin).readlines()
-            cbc.print_lines(output)
+            cbc.print_lines_delay(output)
             userin = input(platform.uname()[0] + "@" + platform.uname()[1] + os.environ['directory'] + "$ ")
+
+    name = "inbuild"
+    description = "Executes shell commands from bash.py."

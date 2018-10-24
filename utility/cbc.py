@@ -2,16 +2,10 @@ import sys
 import time
 
 
-def print_lines_delay(lines):
+def print_lines_delay(lines, delay = .05):
     for line in lines:
         for i in range(len(line) + 1):
             sys.stdout.write('\r' + line[:i])
-            time.sleep(.05)
-        time.sleep(.2)
+            time.sleep(delay)
+        time.sleep(delay * 4)
         sys.stdout.write("\n")
-
-
-def print_lines(lines):
-    for line in lines:
-        for i in range(len(line) + 1):
-            sys.stdout.write('\r' + line[:i])

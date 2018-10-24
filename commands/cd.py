@@ -14,3 +14,7 @@ class Command:
             os.environ['directory'] = os.environ['directory'] + " ".join(args[:]) + "/"
         else:
             print(" ".join(args[:]) + ": Directory doesn't exist")
+
+
+    name = "cd"
+    description = "Switches the current directory."
