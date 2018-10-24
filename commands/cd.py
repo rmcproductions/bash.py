@@ -15,6 +15,5 @@ class Command:
         else:
             print(" ".join(args[:]) + ": Directory doesn't exist")
 
-
     name = "cd"
     description = "Switches the current directory."

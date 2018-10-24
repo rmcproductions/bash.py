@@ -1,10 +1,15 @@
 import utility
+import urllib.request
+import json
 
 
 class Command:
     def exec(self):
         lines = ["bash.py", "", "Developed by Rene (@rmcproductions)", "GNU General Public License v3.0", ""]
-        contributors = ["List of all contributors:", "@rmcproductions", "@G3bE", "@Stupremee", "@romangraef"] # Feel free to add your name here
+        contents = json.loads(urllib.request.urlopen("http://api.github.com/repos/rmcproductions/bash.py/contributors").read())
+        contributors = ["List of all contributors:"]
+        for i in contents:
+            contributors.append(i['login'])
         utility.print_lines_delay(lines + contributors)
 
     name = "about"
