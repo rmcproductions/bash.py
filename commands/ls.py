@@ -1,12 +1,15 @@
 import os
 import time
 import sys
+import utility
 
 
 class Command:
     def exec(args):
         directories = []
         files = []
+
+        print("Listing files and directories for " + os.path.dirname(os.environ['directory']) + "...")
 
         for file in os.listdir(os.environ['directory']):
             sys.stdout.flush()
@@ -17,17 +20,15 @@ class Command:
                 directories.append(file)
                 
         for i in directories:
-            print("DIR\t" + i)
-        for i in files:
-            if i[0]/1e+6 <= 1000 and i[0]/1e+3 < 100000:
-                print("FILE\t" + str(round(i[0]/1e+3)) + "kB\t" + i[1])
-            elif i[0]/1e+6 >= 1000:
-                print("FILE\t" + str(round(i[0]/1e+9)) + "GB\t" + i[1])
-            else:
-                print("FILE\t" + str(round(i[0]/1e+6)) + "MB\t" + i[1])
-
+            print("DIR\t\t" + i)
             if "slow" in args:
                 time.sleep(.1)
+        for i in files:
+            print("FILE\t" + utility.norm_file_size(i[0]) + "\t" + i[1])
+            if "slow" in args:
+                time.sleep(.1)
+
+
 
     name = "ls"
     description = "Shows a list of all files and folders in the current directory."
