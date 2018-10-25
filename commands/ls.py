@@ -12,14 +12,20 @@ class Command:
             sys.stdout.flush()
 
             if os.path.isfile(os.environ['directory'] + file):
-                files.append(file)
+                files.append([os.path.getsize(os.environ['directory'] + file), file])
             else:
                 directories.append(file)
                 
         for i in directories:
             print("DIR\t" + i)
         for i in files:
-            print("FILE\t" + i)
+            if i[0]/1e+6 <= 1000 and i[0]/1e+3 < 100000:
+                print("FILE\t" + str(round(i[0]/1e+3)) + "kB\t" + i[1])
+            elif i[0]/1e+6 >= 1000:
+                print("FILE\t" + str(round(i[0]/1e+9)) + "GB\t" + i[1])
+            else:
+                print("FILE\t" + str(round(i[0]/1e+6)) + "MB\t" + i[1])
+
             if "slow" in args:
                 time.sleep(.1)
 
