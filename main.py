@@ -13,7 +13,7 @@ class Commands:
     def __init__(self):
         try:
             commit = json.loads(urllib.request.urlopen("http://api.github.com/repos/rmcproductions/bash.py/commits").read())[0]['commit']
-        except Exception:
+        except urllib.error.URLError:
             commit = {
                 "message": "GitHub Connection failed",
                 "author": {

@@ -12,7 +12,7 @@ class Command:
             contents = json.loads(urllib.request.urlopen("http://api.github.com/repos/rmcproductions/bash.py/contributors").read())
             for i in contents:
                 contributors.append(str(i['contributions']) + " commits\t" + i['login'])
-        except Exception:
+        except urllib.error.URLError:
             contributors = ["Automatic getting of contributors failed. check your connection."]
         utility.print_lines_delay(lines + contributors)
 
