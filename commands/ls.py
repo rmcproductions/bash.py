@@ -11,7 +11,7 @@ class Command:
         for file in os.listdir(os.environ['directory']):
             sys.stdout.flush()
 
-            if os.path.isfile(file):
+            if os.path.isfile(os.environ['directory'] + file):
                 files.append(file)
             else:
                 directories.append(file)

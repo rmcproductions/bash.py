@@ -5,7 +5,7 @@ import json
 
 class Command:
     def exec(self):
-        lines = ["bash.py", "", "Developed by Rene (@rmcproductions)", "GNU General Public License v3.0", ""]
+        lines = ["bash.py", "", "Developed by Rene V. (@rmcproductions)", "GNU General Public License v3.0", ""]
         contents = json.loads(urllib.request.urlopen("http://api.github.com/repos/rmcproductions/bash.py/contributors").read())
         contributors = ["List of all contributors:"]
         for i in contents:
