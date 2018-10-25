@@ -7,5 +7,5 @@ def print_lines_delay(lines, delay = .05):
         for i in range(len(line) + 1):
             sys.stdout.write('\r' + line[:i])
             time.sleep(delay)
-        time.sleep(delay * 4)
+        time.sleep(delay * 10)
         sys.stdout.write("\n")
